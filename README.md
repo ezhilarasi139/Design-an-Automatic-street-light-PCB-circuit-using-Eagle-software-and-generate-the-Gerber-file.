@@ -5,6 +5,8 @@ To design the schematic and PCB layout diagram of an automatic street light circ
 ## EQUIPMENT REQUIRED:
 ●	Hardware: Personal Computer (PC)<br>
 ●	Software: Eagle<br>
+
+
 ## PROCEDURE:
 	Create a New Project:<br>
 o	Launch EAGLE and start a new project for your PCB design.<br>
@@ -35,6 +37,8 @@ o	Save the Gerber files and any other required manufacturing files to send to yo
 
 ## THEORY:
 The automatic street light circuit is a practical application of a light-sensing system using an LDR (Light Dependent Resistor) and basic transistor switching. The core concept behind this system is to detect ambient light levels and control an external electrical load (such as a lamp) accordingly, without manual intervention. The LDR is a passive electronic component whose resistance varies inversely with the intensity of light falling on it. That is, the resistance of the LDR is high in darkness and low in bright light. This property makes it an ideal sensor for distinguishing between day and night. In this circuit, the LDR is connected in series with a variable resistor (or potentiometer), forming a voltage divider network. This setup is designed such that it triggers the transistors based on the voltage developed across the LDR. Two NPN transistors (BC547) are used in a Darlington-like arrangement to amplify the small signal from the LDR divider and control a 12V relay, which ultimately switches a 220V AC lamp. A diode is connected across the relay coil to protect the transistor from voltage spikes that occur due to the sudden de-energizing of the relay coil. This simple yet efficient theory allows for automated control of lighting systems, reducing energy consumption and providing hands-free operation.
+
+
 ## Working
 The circuit functions by sensing the amount of light falling on the LDR and responding accordingly by turning the connected AC lamp ON or OFF. During daytime or in a well-lit environment, the LDR’s resistance drops significantly, resulting in a lower voltage at the base of the first transistor (Q1). Since this voltage is below the transistor's threshold, Q1 remains OFF, and as a result, the second transistor (Q2) also stays OFF. With both transistors non-conducting, the relay coil receives no current and remains de-energized, keeping the lamp circuit open and the lamp OFF. As night approaches and ambient light reduces, the resistance of the LDR increases, causing a higher voltage drop across it and increasing the voltage at the base of Q1. Once this voltage crosses the required threshold, Q1 begins to conduct, allowing current to flow into the base of Q2, which also starts conducting. When Q2 turns ON, it completes the circuit for the relay coil, energizing it. This activates the relay, closing its normally open contacts and allowing the 220V AC supply to power the connected lamp (L1). The diode (D1) acts as a flyback diode, safely dissipating the back emf produced by the relay coil when switching, thereby protecting Q2 from damage. In this way, the circuit ensures that the lamp automatically switches ON at night and turns OFF during the day, based solely on surrounding light conditions.
 ## CIRCUIT DIAGRAM:
